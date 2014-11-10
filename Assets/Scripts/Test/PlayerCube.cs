@@ -4,15 +4,16 @@ using System.Collections;
 public class PlayerCube : MonoBehaviour {
 
 	public Vector3 targetPosition;
-	private bool moving = false;
-	private float speed = 0.1f;
-	private int playerID;
+	bool _moving = false;
+	float _speed = 0.1f;
+	// int _playerID;
 
 	// Use this for initialization
 	void Start () {
 	}
 
 	public void Init(int playerID) {
+		// _playerID = playerID;
 		// Debug.Log("PlayerCube " + playerID + " Created");
 		gameObject.name = playerID.ToString();
 		switch (playerID) {
@@ -33,19 +34,19 @@ public class PlayerCube : MonoBehaviour {
 
 	public void GotoPosition(Vector3 pos) {
 		targetPosition = pos;
-		moving = true;
+		_moving = true;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (moving) {
-			gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, targetPosition, speed);
+		if (_moving) {
+			gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, targetPosition, _speed);
 			Vector3 direction = targetPosition - gameObject.transform.position;
 			if (direction.magnitude < 0.4) {
-				moving = false;
+				_moving = false;
 			}
 			// direction.Normalize();
-			// gameObject.transform.position += direction * Time.deltaTime * speed;
+			// gameObject.transform.position += direction * Time.deltaTime * _speed;
 		}
 	}
 }

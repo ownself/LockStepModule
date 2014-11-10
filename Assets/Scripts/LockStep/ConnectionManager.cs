@@ -7,41 +7,41 @@ public class ConnectionManager : MonoBehaviour {
 
 	//Networking Setting
 	// public string connectionIP = "127.0.0.1";
-	int connectionPort = 25001;
-	string gameTypeName = "Ownself_LockStep_Module";
-	string gameServerName = "Lock Step";
-	string gameServerPort = "25001";
-	bool refreshingHostList = false;
-	bool isDedicateServer = false;
-	HostData[] hostData;
+	int _connectionPort = 25001;
+	string _gameTypeName = "Ownself_LockStep_Module";
+	string _gameServerName = "Lock Step";
+	string _gameServerPort = "25001";
+	bool _refreshingHostList = false;
+	bool _isDedicateServer = false;
+	HostData[] _hostData;
 
-	int numberOfPlayers = 2;
+	int _numberOfPlayers = 2;
 	public int GetPlayersNumber() {
-		return numberOfPlayers;
+		return _numberOfPlayers;
 	}
-	int buttonOfPlayersSelected;
+	int _buttonOfPlayersSelected;
 	public List<NetworkPlayer> allLobbyPlayers;
 
-	LockStepManager lockStepManager;
+	LockStepManager _lockStepManager;
 	//Network View, for RPC function calling
-	NetworkInterface networkInterface;
+	NetworkInterface _networkInterface;
 
 	// Use this for initialization
 	void Start () {
 		//Get network view
-		lockStepManager = GetComponent<LockStepManager>();
-		networkInterface = GetComponent<NetworkInterface>();
-		buttonOfPlayersSelected = numberOfPlayers - 1;
+		_lockStepManager = GetComponent<LockStepManager>();
+		_networkInterface = GetComponent<NetworkInterface>();
+		_buttonOfPlayersSelected = _numberOfPlayers - 1;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (refreshingHostList) {
+		if (_refreshingHostList) {
 			// Check the host polling list
 			if (MasterServer.PollHostList().Length > 0) {
 				// Debug.Log("HostList Length: " + MasterServer.PollHostList().Length);
-				refreshingHostList = false;
-				hostData = MasterServer.PollHostList();
+				_refreshingHostList = false;
+				_hostData = MasterServer.PollHostList();
 			}
 		}
 	}
@@ -52,15 +52,15 @@ public class ConnectionManager : MonoBehaviour {
 	// Only on Server
 	void OnPlayerDisconnected(NetworkPlayer player) {
 		// Debug.Log("Clean up after player " + player);
-		lockStepManager.DropPlayer(Convert.ToInt32(player.ToString()));
-		numberOfPlayers--;
+		_lockStepManager.DropPlayer(Convert.ToInt32(player.ToString()));
+		_numberOfPlayers--;
 		Network.RemoveRPCs(player);
 	}
 
 	// Only on Client
 	void OnDisconnectedFromServer(NetworkDisconnection info) {
-		numberOfPlayers = 1;
-		lockStepManager.QuitGame();
+		_numberOfPlayers = 1;
+		_lockStepManager.QuitGame();
 	}
 
 	// Initiatively disconnect
@@ -74,14 +74,14 @@ public class ConnectionManager : MonoBehaviour {
 		// Debug.Log("New player connected : " + player.ToString());
 		allLobbyPlayers.Add(player);
 		// Once all expected players have joined, send all clients the list of players
-		if(allLobbyPlayers.Count == numberOfPlayers) {
+		if(allLobbyPlayers.Count == _numberOfPlayers) {
 			foreach(NetworkPlayer p in allLobbyPlayers) {
 				// Debug.Log("Calling RegisterPlayerAll...");
-				networkInterface.CallRegisterPlayerAll(p);
+				_networkInterface.CallRegisterPlayerAll(p);
 			}
 			// start the game
-			// Debug.Log("Ready to Start Sesion : " + allLobbyPlayers.Count + "/" + numberOfPlayers);
-			networkInterface.CallStartSession();
+			// Debug.Log("Ready to Start Sesion : " + allLobbyPlayers.Count + "/" + _numberOfPlayers);
+			_networkInterface.CallStartSession();
 		}
 	}
 
@@ -90,23 +90,23 @@ public class ConnectionManager : MonoBehaviour {
 	//======================================================
 	void OnServerInitialized() {
 		// Debug.Log("Server initialized");
-		// Debug.Log("Expected player count : " + numberOfPlayers);
+		// Debug.Log("Expected player count : " + _numberOfPlayers);
 		// Notify any delegates that we are connected to the game
-		SetClientPlayerNumber(numberOfPlayers);
-		if (!isDedicateServer) {
+		SetClientPlayerNumber(_numberOfPlayers);
+		if (!_isDedicateServer) {
 			// Here we add host as a new player
 			allLobbyPlayers.Add(Network.player);
 		}
 		// Send the number of players for this session and add it but RPC buffer
-		networkInterface.CallSetClientPlayerNumber(numberOfPlayers);
-		if(!isDedicateServer && numberOfPlayers == 1) {
+		_networkInterface.CallSetClientPlayerNumber(_numberOfPlayers);
+		if(!_isDedicateServer && _numberOfPlayers == 1) {
 			StartSession();
 		}
 	}
 
 	public void SetClientPlayerNumber(int num) {
 		// Debug.Log("Set Client Player numbers" + num);
-		numberOfPlayers = num;
+		_numberOfPlayers = num;
 		allLobbyPlayers = new List<NetworkPlayer>();
 	}
 
@@ -118,9 +118,9 @@ public class ConnectionManager : MonoBehaviour {
 	public void StartSession() {
 		// send the start of game event
 		// Debug.Log("Calling Start Game PRC");
-		if (lockStepManager != null) {
+		if (_lockStepManager != null) {
 			int localPlayerIndex = Convert.ToInt32(Network.player.ToString());
-			lockStepManager.InitGame(localPlayerIndex, GetLockStepPlayers(allLobbyPlayers), isDedicateServer);
+			_lockStepManager.InitGame(localPlayerIndex, GetLockStepPlayers(allLobbyPlayers), _isDedicateServer);
 		} else {
 			Debug.Log("Fatal error, LockStepManager hasn't been initialized");
 		}
@@ -143,22 +143,22 @@ public class ConnectionManager : MonoBehaviour {
 	//======================================================
 	void StartHosting() {
 		// Debug.Log("Starting Host");
-		Network.InitializeServer(isDedicateServer ? numberOfPlayers : numberOfPlayers - 1, connectionPort, !Network.HavePublicAddress());
-		MasterServer.RegisterHost(gameTypeName, gameServerName, isDedicateServer ? "Dedicated" : "Standalone");
+		Network.InitializeServer(_isDedicateServer ? _numberOfPlayers : _numberOfPlayers - 1, _connectionPort, !Network.HavePublicAddress());
+		MasterServer.RegisterHost(_gameTypeName, _gameServerName, _isDedicateServer ? "Dedicated" : "Standalone");
 	}
 
 	private void SearchHosting() {
-		hostData = null;
-		MasterServer.RequestHostList(gameTypeName);
-		refreshingHostList = true;
+		_hostData = null;
+		MasterServer.RequestHostList(_gameTypeName);
+		_refreshingHostList = true;
 	}
 
 	void JoinHosting(HostData host) {
 		// Debug.Log("Joining Host");
-		// Network.Connect(connectionIP, connectionPort);
-		isDedicateServer = false;
+		// Network.Connect(connectionIP, _connectionPort);
+		_isDedicateServer = false;
 		Network.Connect(host);
-		hostData = null;
+		_hostData = null;
 	}
 
 	//======================================================
@@ -172,27 +172,27 @@ public class ConnectionManager : MonoBehaviour {
 
 		if (!Network.isClient && !Network.isServer) {
 			string[] toolbarStrings = new string[] {"Single Player", "2 Players", "3 Players", "4 Players"};
-			buttonOfPlayersSelected = GUI.Toolbar(new Rect(btnX - btnW * 1.5f, btnY, btnW * 4, btnH / 2), buttonOfPlayersSelected, toolbarStrings);
-			numberOfPlayers = buttonOfPlayersSelected + 1;
-			isDedicateServer = GUI.Toggle (new Rect (btnX - btnW - 60, btnY * 1.5f + btnH, btnW + 40, btnH), isDedicateServer, "Dedicate Server");
+			_buttonOfPlayersSelected = GUI.Toolbar(new Rect(btnX - btnW * 1.5f, btnY, btnW * 4, btnH / 2), _buttonOfPlayersSelected, toolbarStrings);
+			_numberOfPlayers = _buttonOfPlayersSelected + 1;
+			_isDedicateServer = GUI.Toggle (new Rect (btnX - btnW - 60, btnY * 1.5f + btnH, btnW + 40, btnH), _isDedicateServer, "Dedicate Server");
 			if (GUI.Button(new Rect(btnX, btnY * 1.2f + btnH, btnW, btnH), "Start Server")) {
 				// Debug.Log("Starting Server");
 				StartHosting();
 			}
-			gameServerName = GUI.TextField(new Rect(btnX + btnW * 1.2f, btnY * 1.5f + btnH, btnW, btnH / 2), gameServerName);
-			gameServerPort = GUI.TextField(new Rect(btnX + btnW * 2.2f, btnY * 1.5f + btnH, btnW, btnH / 2), gameServerPort);
-			connectionPort = Convert.ToInt32(gameServerPort);
-			// if (numberOfPlayers > 1 && GUI.Button(new Rect(btnX, btnY * 2.4f + btnH, btnW, btnH), "Client Connect")) {
+			_gameServerName = GUI.TextField(new Rect(btnX + btnW * 1.2f, btnY * 1.5f + btnH, btnW, btnH / 2), _gameServerName);
+			_gameServerPort = GUI.TextField(new Rect(btnX + btnW * 2.2f, btnY * 1.5f + btnH, btnW, btnH / 2), _gameServerPort);
+			_connectionPort = Convert.ToInt32(_gameServerPort);
+			// if (_numberOfPlayers > 1 && GUI.Button(new Rect(btnX, btnY * 2.4f + btnH, btnW, btnH), "Client Connect")) {
 			// 	JoinHosting();
 			// }
 			if (GUI.Button(new Rect(btnX, btnY * 2.4f + btnH, btnW, btnH), "Search Hosts")) {
 				// Debug.Log("Refreshing Hosts");
 				SearchHosting();
 			}
-			if (hostData != null) {
+			if (_hostData != null) {
 				int i =0;
-				int length = hostData.Length;
-				foreach (HostData hd in hostData) {
+				int length = _hostData.Length;
+				foreach (HostData hd in _hostData) {
 					int connectedPlayers = hd.connectedPlayers;
 					int playerLimit = hd.playerLimit;
 					if (hd.comment == "Dedicated") { connectedPlayers--; playerLimit--; }

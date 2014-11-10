@@ -14,12 +14,10 @@ public class BinarySerialization
 	}
 	
 	public static byte[] SerializeObjectToByteArray(object o) {
-		if (!o.GetType().IsSerializable)
-		{
+		if (!o.GetType().IsSerializable) {
 			return null;
 		}
-		using (MemoryStream stream = new MemoryStream())
-		{
+		using (MemoryStream stream = new MemoryStream()) {
 			new BinaryFormatter().Serialize(stream, o);
 			return stream.ToArray();
 		}
@@ -31,8 +29,7 @@ public class BinarySerialization
 	}
 	
 	public static object DeserializeObject(byte[] byteArray) {
-		using (MemoryStream stream = new MemoryStream(byteArray))
-		{
+		using (MemoryStream stream = new MemoryStream(byteArray)) {
 			return new BinaryFormatter().Deserialize(stream);
 		}
 	}

@@ -16,16 +16,16 @@ public class NoAction : Action {
 
 [Serializable]
 public class MovementAction : Action {
-	private int playerID;
-	private float x,z;
-	public MovementAction(int id, float xFactor, float zFactor) {playerID = id; x = xFactor; z = zFactor;}
+	int _playerID;
+	float _x,_z;
+	public MovementAction(int id, float xFactor, float zFactor) {_playerID = id; _x = xFactor; _z = zFactor;}
 	public override void ProcessAction() {
-		GameObject playerObject = GameObject.Find(playerID.ToString());
-		// Debug.Log("MovementAction!!!" + playerID.ToString());
+		GameObject playerObject = GameObject.Find(_playerID.ToString());
+		// Debug.Log("MovementAction!!!" + _playerID.ToString());
 		if (playerObject != null) {
-			playerObject.GetComponent<PlayerCube>().GotoPosition(new Vector3(x, 0, z));
+			playerObject.GetComponent<PlayerCube>().GotoPosition(new Vector3(_x, 0, _z));
 			// Vector3 position = cubeGameObject.transform.position;
-			// cubeGameObject.transform.position = new Vector3(position.x + x, position.y, position.z + z);
+			// cubeGameObject.transform.position = new Vector3(position._x + _x, position.y, position._z + _z);
 			// Debug.Log("Cube has been moved!!!");
 		}
 	}

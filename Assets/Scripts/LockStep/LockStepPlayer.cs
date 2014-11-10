@@ -3,33 +3,33 @@ using System.Collections;
 
 public class LockStepPlayer {
 
-	int playerIndex; // Index of current game
 	public NetworkPlayer networkPlayer;
-	GameObject playerObject;
+	GameObject _playerObject;
+	int _playerIndex; // Index of current game
 
 	public void InitPlayer(int index) {
-		playerIndex = index;
+		_playerIndex = index;
 	}
 
 	public void SpawnPlayer() {
 		GameObject playerPrefab = (GameObject)Resources.Load("PlayerCube");
-		playerObject = (GameObject)Object.Instantiate(playerPrefab,
-			new Vector3(-1 + playerIndex * 2, 0, 0), Quaternion.identity);
-		playerObject.GetComponent<PlayerCube>().Init(playerIndex);
+		_playerObject = (GameObject)Object.Instantiate(playerPrefab,
+			new Vector3(-1 + _playerIndex * 2, 0, 0), Quaternion.identity);
+		_playerObject.GetComponent<PlayerCube>().Init(_playerIndex);
 	}
 
 	public void DestroyPlayer() {
-		GameObject playerObject = GameObject.Find(GetPlayerName());
-		if (playerObject) {
-			Object.Destroy(playerObject);
+		GameObject _playerObject = GameObject.Find(GetPlayerName());
+		if (_playerObject) {
+			Object.Destroy(_playerObject);
 		}
 	}
 
 	public string GetPlayerName() {
-		return playerIndex.ToString();
+		return _playerIndex.ToString();
 	}
 
 	public int GetPlayerIndex() {
-		return playerIndex;
+		return _playerIndex;
 	}
 }

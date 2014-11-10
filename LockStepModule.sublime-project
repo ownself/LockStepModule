@@ -1,0 +1,10 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "Assets",
+			"file_include_patterns": ["*.cs","*.shader","*.cpp","*.h","*.hpp","*.mk","*.sublime-project"]
+		}
+	]
+}
