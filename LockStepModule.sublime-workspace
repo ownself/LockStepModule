@@ -1,0 +1,1016 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"lockste",
+				"lockStepTurnID"
+			],
+			[
+				"loc",
+				"LockstepTurnLength"
+			],
+			[
+				"gameframper",
+				"GameFramesPerLockstepTurn"
+			],
+			[
+				"skil",
+				"skill2"
+			],
+			[
+				"Skill",
+				"Skill_Throw"
+			],
+			[
+				"mHi",
+				"mHighScorePanel"
+			],
+			[
+				"mis",
+				"mIsGamePaused"
+			],
+			[
+				"blo",
+				"blockObjects	GameObject[]"
+			],
+			[
+				"sp",
+				"speed"
+			],
+			[
+				"leve",
+				"level"
+			],
+			[
+				"game",
+				"gameFinished"
+			],
+			[
+				"rew",
+				"reward4"
+			],
+			[
+				"re",
+				"reward1"
+			],
+			[
+				"mo",
+				"MoveLeft"
+			],
+			[
+				"Mo",
+				"MoveRight"
+			],
+			[
+				"mov",
+				"MoveLeft"
+			],
+			[
+				"Uin",
+				"UnityEngine"
+			],
+			[
+				"Ver",
+				"Vector3	x, y, z"
+			],
+			[
+				"Unity",
+				"UnityEngine"
+			],
+			[
+				"unit",
+				"UnityEditor"
+			],
+			[
+				"Unit",
+				"UnityEditor"
+			],
+			[
+				"Game",
+				"GameObject"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "Searching 11 files for \"List<\"\n\nD:\\GitHub\\LockStepModule\\Assets\\Scripts\\LockStep\\ConnectionManager.cs:\n   21  	}\n   22  	int _buttonOfPlayersSelected;\n   23: 	public List<NetworkPlayer> allLobbyPlayers;\n   24  \n   25  	LockStepManager _lockStepManager;\n   ..\n  108  		// Debug.Log(\"Set Client Player numbers\" + num);\n  109  		_numberOfPlayers = num;\n  110: 		allLobbyPlayers = new List<NetworkPlayer>();\n  111  	}\n  112  \n  ...\n  127  	}\n  128  \n  129: 	List<LockStepPlayer> GetLockStepPlayers(List<NetworkPlayer> networkPlayers) {\n  130: 		List<LockStepPlayer> allPlayers = new List<LockStepPlayer>();\n  131  		foreach (NetworkPlayer networkPlayer in networkPlayers) {\n  132  			LockStepPlayer player = new LockStepPlayer();\n\nD:\\GitHub\\LockStepModule\\Assets\\Scripts\\LockStep\\LockStepManager.cs:\n   17  \n   18  	// Use for confirm and ready from all the players\n   19: 	List<int> _readyPlayers;\n   20: 	List<int> _playersConfirmedImReady;\n   21  	// Use for store all the players in the session\n   22  	public Dictionary<int, LockStepPlayer> allPlayers;\n   ..\n   80  		if(_initialized) { return; }\n   81  \n   82: 		_readyPlayers = new List<int>(_numberOfPlayers);\n   83: 		_playersConfirmedImReady = new List<int>(_numberOfPlayers);\n   84  \n   85  		_initialized = true;\n   86  	}\n   87  \n   88: 	public void InitGame(int index, List<LockStepPlayer> players, bool isDedicated = false) {\n   89  		allPlayers.Clear();\n   90  		foreach (LockStepPlayer player in players) {\n   ..\n  473  		// update game\n  474  \n  475: 		// List<IHasGameFrame> finished = new List<IHasGameFrame>();\n  476  		// foreach(IHasGameFrame obj in SceneManager.Manager.GameFrameObjects) {\n  477  		// 	obj.GameFrameTurn(_gameFramesPerSecond);\n\nD:\\GitHub\\LockStepModule\\Assets\\Scripts\\LockStep\\PendingActions.cs:\n   93  	}\n   94  \n   95: 	public List<int> WhosNotReady() {\n   96  		if(_nextNextActions.Count == _lockStepManager.GetPlayersNumber()) {\n   97  			//if this is the 2nd turn, check if all the actions sent out on the 1st turn have been recieved\n   ..\n  115  	}\n  116  \n  117: 	private List<int> CheckWhosNotReady(Dictionary<int, Action> actions, int count) {\n  118  		if (count < _lockStepManager.GetPlayersNumber()) {\n  119: 			List<int> notReadyPlayers = new List<int>();\n  120  			foreach (KeyValuePair<int, LockStepPlayer> player in _lockStepManager.allPlayers) {\n  121  				if (!actions.ContainsKey(player.Key) || actions[player.Key] == null) {\n\n17 matches across 3 files\n\n\nSearching 11 files for \"StringBuilder\"\n\nD:\\GitHub\\LockStepModule\\Assets\\Scripts\\LockStep\\LockStepManager.cs:\n  297  				return true;\n  298  			} else {\n  299: 				StringBuilder sb = new StringBuilder();\n  300  				sb.Append(\"Have not recieved player(s) actions: \");\n  301  				foreach (int i in _pendingActions.WhosNotReady()) {\n  ...\n  305  			}\n  306  		} else {\n  307: 			StringBuilder sb = new StringBuilder();\n  308  			sb.Append(\"Have not recieved confirmation from player(s): \");\n  309  			foreach (int i in _pendingActions.WhosNotReady()) {\n\n4 matches in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 3030,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "Assets/Scripts/LockStep/ConnectionManager.cs",
+			"settings":
+			{
+				"buffer_size": 7929,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"instea",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"isntal",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pre",
+				"Preferences: Settings - User"
+			],
+			[
+				"prefe",
+				"Preferences: Settings - User"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"borw",
+				"Preferences: Browse Packages"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"prefer",
+				"Preferences: Settings - User"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"p",
+				"Package Control: Install Package"
+			],
+			[
+				"pl",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 386.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+			"sublime.log_commands(False)",
+			"sublime.log_commands(True)",
+			"sublime.log_commands(False)",
+			"sublime.log_commands(True)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/GitHub/LockStepModule/Assets"
+	],
+	"file_history":
+	[
+		"/D/GitHub/LockStepModule/Assets/Scripts/LockStep/LockStepManager.cs",
+		"/C/Users/Jimmy/Desktop/81-C# Script-NewBehaviourScript.cs.txt",
+		"/D/GitHub/Tetris/Assets/Script/MobileTetrisGame.cs",
+		"/D/GitHub/Tetris/Assets/Script/TetrisGame.cs",
+		"/D/GitHub/Tetris/Assets/Script/HighScoreComponent.cs",
+		"/D/GitHub/Tetris/Assets/Script/GameManager.cs",
+		"/D/GitHub/Tetris/Assets/Script/Block.cs",
+		"/D/GitHub/Tetris/Assets/Script/AudioManager.cs",
+		"/D/GitHub/ConsoleCommand/Assets/ConsoleCommand/ConsoleCommand.cs",
+		"/D/GitHub/ConsoleCommand/Assets/ConsoleCommand/ConsoleCommandGUI.cs",
+		"/C/Users/Jimmy/AppData/Local/Temp/p4v/REDA010_redaserver_1666/depot_prototype/prototypes/LockStepPrototype/Assets/Scripts/LockStep/BinarySerialization#3.cs",
+		"/C/Program Files (x86)/Unity/Editor/Data/Resources/ScriptTemplates/81-C# Script-NewBehaviourScript.cs.txt",
+		"/C/Program Files (x86)/Unity/Editor/Data/Resources/ScriptTemplates/80-Javascript-NewBehaviourScript.js.txt",
+		"/C/Program Files (x86)/Unity/Editor/Data/Resources/ScriptTemplates/82-Boo Script-NewBehaviourScript.boo.txt",
+		"/C/Program Files (x86)/Unity/Editor/Data/Resources/ScriptTemplates/83-Shader-NewShader.shader.txt",
+		"/C/Program Files (x86)/Unity/Editor/Data/Resources/ScriptTemplates/84-Compute Shader-NewComputeShader.compute.txt",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/LockStep/PendingActions.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Commons/Commands.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/LockStep/Action.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/LockStep/LockStepManager.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/RedCore/Network/common/byteArray.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/LockStep/NetworkInterface.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Behaviors/Moveable.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Characters/Creature.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Commons/CommandDelivery.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Input/TapToMove.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Battle/BattleRoom.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/LockStep/LockStepPlayer.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Network/protocol/msg_room_members.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Characters/CharacterInitializer.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Characters/Player.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Behaviors/BehaviorBase.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Network/protocol/member_info.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/inc/gv_base_type.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Animations/BaseAnimator.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/LockStep/BinarySerialization.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/Plane.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/PlatformAndroid.hpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/inc/gv_pp_lexer.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Commons/CommonEnums.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/LockStep/ConfirmedActions.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/CheckBox.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_framework/renderer/gv_component_renderer.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Network/protocol/msg_delivery_live_broadcast.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_mobile_rpg/gv_cmd_battle.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Commons/CommandManager.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/RedCore/Extensions/MonoBehaviourExtended.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/RedCore/Network/TheApp.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/targetver.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Plugins/source/processors/initializer.cpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/inc/gv_lang_cpp.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Plugins/source/processors/Movement.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Plugins/source/processors/Movement.cpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Plugins/DllInterface.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Map/MapInfo.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Editor/Map/MapExporter.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Network/NetworkManager.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/RedCore/Base/MonoSingleton.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/LockStep/RollingAverage.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Plugins/source/wrapers/DllInterface.cpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Plugins/source/SpiceCoreGame.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Plugins/source/SpiceCoreGame.cpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/external/LitJson/JsonWriter.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/external/LitJson/JsonData.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/inc/gvt_lock_free_list.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Characters/Monster.cs",
+		"/D/Projects/Spice/depot_prototype/prototypes/LockStepPrototype/LockStepPrototype.sublime-project",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/LockStep/ConnectionManager.cs",
+		"/C/Sublimetext/Data/Packages/User/Preferences.sublime-settings",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Spice_Main_Client.sublime-project",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/external/AstarPathfindingProject/Generators/Utilities/RecastBBTree.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/external/AstarPathfindingProject/Generators/Utilities/BBTree.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__applications/gv_mobile_rpg_hill_sea/gv_game_hill_sea_unit_tests.hpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_framework/ai/gv_com_ai_player_controller_rpg.hpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__applications/gv_mobile_rpg_hill_sea/gv_mobile_rpg_hill_sea_all_in_one.cpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/LockStep/LobbyManager.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/LockStep/UnityNetworkManager.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Editor/UniTests/RedCore/Input/InputUniTest.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Network/NetworkInitializer.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Network/nettest.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Gameplay/Network/NetEventDispatcher.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/Node.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Editor/UniTests/Gameplay/MapExporterTest.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/MaterialParameter.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/math/gv_math_all_in_one.cpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/ansi/gv_mutex_ansi.hpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/inc/gv_base_internal.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/Base.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/boost_lib/atomic/src/lockpool.cpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/boost_lib/system/src/local_free_on_destruction.hpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/Label.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_mobile_rpg/gv_rpg_obj.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/Ray.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/Container.h",
+		"/D/Test/LockStepPrototype/Assets/LockStepManager.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/AudioController.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/Application.mk",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/ParticleEmitter.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/Pass.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/inc/gv_base_class.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/inc/gv_base.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/android/gv_base_android.hpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_framework/renderer/gv_vertex_buffer.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/inc/gvt_value.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gv_gp.h",
+		"/D/Projects/Spice/depot_prototype/prototypes/LockStepPrototype/Assets/NetworkManager.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__unit_tests/gv_framework_unit_test/unit_test_image.hpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/RedCore/Base/Utils.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_mobile_rpg/gv_rpg_enum.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_framework/engine/gv_engine_struct.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_framework/component/gv_entity.hpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/math/gv_ellipsoid.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/math/gv_euler.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_gameplay3d_driver/gameplay/Effect.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_framework/component/gv_entity_manager.hpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/external/AstarPathfindingProject/Generators/NodeClasses/TriangleMeshNode.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_base/math/gv_numerical.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__drivers/gv_mobile_rpg/gv_rpg_unit.hpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/Moba_Camera.cs",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Plugins/source/processors/Initializer.h",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Plugins/source/processors/ProcessorBase.h",
+		"/C/Sublimetext/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/gv_framework/src/gv_sandbox_property.hpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/common/gv/gv_game_engine/__applications/gv_mobile_rpg_hill_sea/stdafx.cpp",
+		"/D/Projects/Spice/depot/branches/development/main/Spice/client/Assets/Scripts/RedCore/Base/DebugUtil.cs",
+		"/D/Test/LockStepPrototype/Assets/Action.cs",
+		"/D/Test/LockStepPrototype/Assets/NetworkManager.cs",
+		"/D/Test/LockStepPrototype/Assets/ConfirmedActions.cs"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+			"*.cs",
+			"",
+			"*.uc, *.cpp"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"networkPlayers",
+			"sb",
+			"StringBuilder",
+			"\n  ",
+			"List<",
+			"debug.log",
+			"CreateMyself",
+			"Count",
+			"_me",
+			"1",
+			"addMember",
+			"\n    ",
+			"OnRoomMembers",
+			"CreateCharacter",
+			"CreatureID",
+			"UniqueId",
+			"_uniqueId",
+			"unity",
+			"RegisteCommandBehaviour",
+			"delivery",
+			"DeliveryId",
+			"dir",
+			"tpos",
+			"moveable",
+			"CreateCharacter",
+			"CreatureID",
+			"UniqueId",
+			"delivery",
+			"UniqueId",
+			"DeliveryId",
+			"RecieveAction",
+			"AddAction",
+			"confirmation",
+			"AddAction",
+			"using",
+			"DeliveryId",
+			"\n	",
+			"AddAction",
+			"_actionsToSend",
+			"actionAsBytes",
+			"DeliveryId",
+			"TargetId",
+			"DeliveryId",
+			"AddAction",
+			"_actionsToSend",
+			"action",
+			"Debug.Log",
+			"AddAction",
+			"frameSyn",
+			"execAction",
+			"_actionsToSend",
+			"CallSendAction",
+			"execAction",
+			"RecieveAction",
+			"AddAction",
+			"InitGame",
+			"_me",
+			"InitGame",
+			"\n	",
+			"localPlayerIndex",
+			"lockStepTurnID",
+			"networkInterface",
+			"connectionManager",
+			"lockStepManager",
+			"LockStepManager",
+			"lockStepManager",
+			"networkViewComponent",
+			"Toolbox",
+			"MonoSingleton",
+			"LockStepManager.Instance",
+			"LockStepManager",
+			"LockStepManager Instance",
+			"LockStepManager",
+			"Instance",
+			"_s_instance",
+			"Instance",
+			"ConnectionManager",
+			"hostData",
+			"isDedicateServer",
+			"gameServerPort",
+			"gameTypeName",
+			"gameServerPort",
+			"SpawnPlayer",
+			"numberOfPlayers",
+			"GetPlayersNumber",
+			"numberOfPlayers",
+			"Get",
+			"GetPlayersNumber",
+			"numberOfPlayers",
+			"RegisterPlayerAll",
+			"networkViewComponent",
+			"OnPlayerConnected",
+			"networkViewComponent",
+			"Substring",
+			"Load",
+			"Resources",
+			"using",
+			"networkView",
+			"TerminusTTF",
+			"NextNextNextActions",
+			"nextNextNextActions",
+			"NextNextActions",
+			"nextNextActions",
+			"NextActions",
+			"nextActions",
+			"NextActions",
+			"CurrentActions",
+			"currentActions",
+			"GameLagTime",
+			"gameLagTime",
+			"NetworkLagTime",
+			"networkLagTime",
+			"NetworkLagTime",
+			"DispatchCommand",
+			"PlayCommand",
+			"ProcessCommand",
+			"Action",
+			"private",
+			"FirstLockStepTurnID",
+			"firstLockStepTurnID",
+			"lockStepTurnID",
+			"numberOfPlayers",
+			"lockStepTurnID",
+			"getLockStepTurn",
+			"		",
+			"lockStepTurnID",
+			"gameSetup",
+			"networkView"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3030,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										166,
+										171
+									],
+									[
+										381,
+										386
+									],
+									[
+										454,
+										459
+									],
+									[
+										494,
+										499
+									],
+									[
+										541,
+										546
+									],
+									[
+										579,
+										584
+									],
+									[
+										870,
+										875
+									],
+									[
+										903,
+										908
+									],
+									[
+										1135,
+										1140
+									],
+									[
+										1204,
+										1209
+									],
+									[
+										1329,
+										1334
+									],
+									[
+										1520,
+										1525
+									],
+									[
+										1555,
+										1560
+									],
+									[
+										1816,
+										1821
+									],
+									[
+										2066,
+										2071
+									],
+									[
+										2210,
+										2215
+									],
+									[
+										2242,
+										2247
+									],
+									[
+										2623,
+										2636
+									],
+									[
+										2646,
+										2659
+									],
+									[
+										2835,
+										2848
+									],
+									[
+										2858,
+										2871
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								446,
+								452
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Assets/Scripts/LockStep/ConnectionManager.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7929,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								544,
+								544
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "LockStepModule.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"lock",
+				"client\\Assets\\Scripts\\LockStep\\LockStepManager.cs"
+			],
+			[
+				"battlro",
+				"client\\Assets\\Scripts\\Gameplay\\Battle\\BattleRoom.cs"
+			],
+			[
+				"plaer",
+				"client\\Assets\\Scripts\\Gameplay\\Characters\\Player.cs"
+			],
+			[
+				"commad",
+				"client\\Assets\\Scripts\\Gameplay\\Commons\\CommandDelivery.cs"
+			],
+			[
+				"char",
+				"client\\Assets\\Scripts\\Gameplay\\Characters\\CharacterInitializer.cs"
+			],
+			[
+				"netwo",
+				"client\\Assets\\Scripts\\LockStep\\NetworkInterface.cs"
+			],
+			[
+				"cre",
+				"client\\Assets\\Scripts\\Gameplay\\Characters\\Creature.cs"
+			],
+			[
+				"cmdeli",
+				"client\\Assets\\Scripts\\Gameplay\\Commons\\CommandDelivery.cs"
+			],
+			[
+				"behavb",
+				"client\\Assets\\Scripts\\Gameplay\\Behaviors\\BehaviorBase.cs"
+			],
+			[
+				"movea",
+				"client\\Assets\\Scripts\\Gameplay\\Behaviors\\Moveable.cs"
+			],
+			[
+				"taptomo",
+				"client\\Assets\\Scripts\\Gameplay\\Input\\TapToMove.cs"
+			],
+			[
+				"action",
+				"client\\Assets\\Scripts\\LockStep\\Action.cs"
+			],
+			[
+				"netow",
+				"client\\Assets\\Scripts\\LockStep\\NetworkInterface.cs"
+			],
+			[
+				"lockman",
+				"client\\Assets\\Scripts\\LockStep\\LockStepManager.cs"
+			],
+			[
+				"move",
+				"client\\Assets\\Scripts\\Gameplay\\Input\\TapToMove.cs"
+			],
+			[
+				"mov",
+				"client\\Assets\\Scripts\\Gameplay\\Behaviors\\Moveable.cs"
+			],
+			[
+				"netin",
+				"client\\Assets\\Scripts\\LockStep\\NetworkInterface.cs"
+			],
+			[
+				"net",
+				"client\\Assets\\Scripts\\LockStep\\NetworkInterface.cs"
+			],
+			[
+				"moveab",
+				"client\\Assets\\Scripts\\Gameplay\\Behaviors\\Moveable.cs"
+			],
+			[
+				"act",
+				"client\\Assets\\Scripts\\LockStep\\Action.cs"
+			],
+			[
+				"locman",
+				"client\\Assets\\Scripts\\LockStep\\LockStepManager.cs"
+			],
+			[
+				"locpl",
+				"client\\Assets\\Scripts\\LockStep\\LockStepPlayer.cs"
+			],
+			[
+				"locpal",
+				"client\\Assets\\Scripts\\LockStep\\LockStepPlayer.cs"
+			],
+			[
+				"bina",
+				"client\\Assets\\Scripts\\LockStep\\BinarySerialization.cs"
+			],
+			[
+				"lockste",
+				"client\\Assets\\Scripts\\LockStep\\LockStepPlayer.cs"
+			],
+			[
+				"mono",
+				"client\\Assets\\Scripts\\RedCore\\Base\\MonoSingleton.cs"
+			],
+			[
+				"connet",
+				"client\\Assets\\Scripts\\LockStep\\ConnectionManager.cs"
+			],
+			[
+				"sub",
+				"client\\Spice_Main_Client.sublime-project"
+			],
+			[
+				"sublim",
+				"C:\\Sublimetext\\Data\\Packages\\User\\Preferences.sublime-settings"
+			],
+			[
+				"netwman",
+				"client\\Assets\\Scripts\\Gameplay\\Network\\NetworkManager.cs"
+			],
+			[
+				"conne",
+				"client\\Assets\\Scripts\\LockStep\\ConnectionManager.cs"
+			],
+			[
+				"lobb",
+				"client\\Assets\\Scripts\\LockStep\\LobbyManager.cs"
+			],
+			[
+				"locpla",
+				"client\\Assets\\Scripts\\LockStep\\LockStepPlayer.cs"
+			],
+			[
+				"unityne",
+				"client\\Assets\\Scripts\\LockStep\\UnityNetworkManager.cs"
+			],
+			[
+				"pen",
+				"client\\Assets\\Scripts\\LockStep\\PendingActions.cs"
+			],
+			[
+				"con",
+				"client\\Assets\\Scripts\\LockStep\\ConfirmedActions.cs"
+			],
+			[
+				"unityn",
+				"client\\Assets\\Scripts\\LockStep\\UnityNetworkManager.cs"
+			],
+			[
+				"unitye",
+				"client\\Assets\\Scripts\\LockStep\\UnityNetworkManager.cs"
+			],
+			[
+				"mapext",
+				"client\\Assets\\Scripts\\Editor\\Map\\MapExporter.cs"
+			],
+			[
+				"mainfo",
+				"client\\Assets\\Scripts\\Gameplay\\Map\\MapInfo.cs"
+			],
+			[
+				"unity",
+				"client\\Assets\\Scripts\\LockStep\\UnityNetworkManager.cs"
+			],
+			[
+				"binaser",
+				"client\\Assets\\Scripts\\LockStep\\BinarySerialization.cs"
+			],
+			[
+				"dllin",
+				"client\\Assets\\Scripts\\Plugins\\DllInterface.cs"
+			],
+			[
+				"rolling",
+				"client\\Assets\\Scripts\\LockStep\\RollingAverage.cs"
+			],
+			[
+				"confir",
+				"client\\Assets\\Scripts\\LockStep\\ConfirmedActions.cs"
+			],
+			[
+				"pending",
+				"client\\Assets\\Scripts\\LockStep\\PendingActions.cs"
+			],
+			[
+				"gvbasecla",
+				"gv_game_engine\\gv_base\\inc\\gv_base_class.h"
+			],
+			[
+				"commonenums",
+				"client\\Assets\\Scripts\\Gameplay\\Commons\\CommonEnums.cs"
+			],
+			[
+				"gv_enum",
+				"gv_game_engine\\__drivers\\gv_mobile_rpg\\gv_rpg_enum.h"
+			],
+			[
+				"movemen",
+				"client\\Plugins\\source\\processors\\Movement.cpp"
+			],
+			[
+				"sp",
+				"client\\Plugins\\source\\SpiceCoreGame.cpp"
+			],
+			[
+				"ini",
+				"client\\Plugins\\source\\processors\\initializer.cpp"
+			],
+			[
+				"spcorgacpp",
+				"client\\Plugins\\source\\SpiceCoreGame.cpp"
+			],
+			[
+				"dll",
+				"Plugins\\source\\wrapers\\DllInterface.cpp"
+			],
+			[
+				"rolli",
+				"D:\\Test\\LockStepPrototype\\Assets\\RollingAverage.cs"
+			],
+			[
+				"confi",
+				"D:\\Test\\LockStepPrototype\\Assets\\ConfirmedActions.cs"
+			],
+			[
+				"ac",
+				"D:\\Test\\dynamic-lockstep\\Assets\\Code\\Actions\\Action.cs"
+			],
+			[
+				"tetri",
+				"Assets\\Script\\TetrisGame.cs"
+			],
+			[
+				"hight",
+				"Assets\\Highscore\\Script\\Highscore.cs"
+			],
+			[
+				"blo",
+				"Assets/Script/Block.cs"
+			],
+			[
+				"gam",
+				"Assets/Script/GameManager.cs"
+			],
+			[
+				"gi",
+				".gitignore"
+			],
+			[
+				"bl",
+				"Assets/Script/Block.cs"
+			],
+			[
+				"te",
+				"Tetris.sublime-project"
+			],
+			[
+				"game",
+				"Assets/Script/GameManager.cs"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\Projects\\Spice\\depot_prototype\\prototypes\\LockStepPrototype\\LockStepPrototype.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"internaltri",
+				"InternalTriggerAudioNotification"
+			],
+			[
+				"lootti",
+				"LootTimer"
+			]
+		],
+		"width": 378.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 311.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

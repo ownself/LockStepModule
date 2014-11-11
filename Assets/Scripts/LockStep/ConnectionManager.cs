@@ -74,8 +74,8 @@ public class ConnectionManager : MonoBehaviour {
 		// Debug.Log("New player connected : " + player.ToString());
 		allLobbyPlayers.Add(player);
 		// Once all expected players have joined, send all clients the list of players
-		if(allLobbyPlayers.Count == _numberOfPlayers) {
-			foreach(NetworkPlayer p in allLobbyPlayers) {
+		if (allLobbyPlayers.Count == _numberOfPlayers) {
+			foreach (NetworkPlayer p in allLobbyPlayers) {
 				// Debug.Log("Calling RegisterPlayerAll...");
 				_networkInterface.CallRegisterPlayerAll(p);
 			}
@@ -114,7 +114,7 @@ public class ConnectionManager : MonoBehaviour {
 		// Debug.Log("Register Player All called for " + player.ToString());
 		allLobbyPlayers.Add(player);
 	}
-	
+
 	public void StartSession() {
 		// send the start of game event
 		// Debug.Log("Calling Start Game PRC");
